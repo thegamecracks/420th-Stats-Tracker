@@ -1,0 +1,11 @@
+name = "Stats Tracker";
+author = "thegamecracks";
+tooltip = "Stats Tracker";
+tooltipOwned = "Stats Tracker";
+actionName = "GitHub";
+action = "https://github.com/thegamecracks/420th-Stats-Tracker";
+overview = "";
+// logo = "logo.jpg";
+// logoOver = "logo.jpg";
+// logoSmall = "logo.jpg";
+// picture = "logo.jpg";
