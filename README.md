@@ -17,7 +17,7 @@ hemtt build
 ## Functional Requirements
 
 - [ ] System should be able to track an arbitrary number of numerical player statistics
-  - [ ] Infantry kills, ground kills, tank kills, aircraft kills
+  - [ ] Infantry kills, ground kills, ship kills, tank kills, aircraft kills
   - [ ] Playtime (hours)
   - [ ] Player deaths and incapacitations
   - [ ] Players transported
