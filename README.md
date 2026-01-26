@@ -42,6 +42,9 @@ hemtt build
 - [ ] Statistics should be synced to a database at least every five minutes
 - [ ] Server should call stored procedure N x M times to submit each player's stats
 - [ ] Stored procedure should insert or update daily statistics based on CURRENT_DATE
+- [ ] On insert or update to daily statistics, a trigger should insert or update the
+      `'score'` daily statistic based on the stat's `score_multiplier` column,
+      not including updates to the score stat itself (to prevent recursion)
 - [ ] Weekly and monthly statistics should be materialized views of daily statistics
 - [ ] Triggers should synchronize daily statistics with all-time statistics (insert/update only)
 - [ ] Daily statistics should be pruned once every month
