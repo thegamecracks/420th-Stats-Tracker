@@ -29,6 +29,7 @@ class CfgFunctions {
             class statsInit { postInit = 1; };
             class statsPlaytimeLoop {};
             class statsReset {};
+            class statsRevivesLoop {};
             class statsTemplate {};
         };
     };
