@@ -54,7 +54,7 @@ hemtt build
 
 ```mermaid
 erDiagram
-    player {
+    stat_player {
         string steam_id
         string name
     }
@@ -62,41 +62,41 @@ erDiagram
         string stat_id
         number score_multiplier
     }
-    server {
+    stat_server {
         string server_id
         string name
     }
-    player_daily_stat {
+    stat_player_daily {
         date time
         string steam_id
         string stat_id
         string server_id
         number amount
     }
-    player_weekly_stat {
+    stat_player_weekly {
         date time
         string steam_id
         string stat_id
         string server_id
         number amount
     }
-    player_monthly_stat {
+    stat_player_monthly {
         date time
         string steam_id
         string stat_id
         string server_id
         number amount
     }
-    player_alltime_stat {
+    stat_player_alltime {
         string steam_id
         string stat_id
         string server_id
         number amount
     }
-    player ||--o{ player_daily_stat : "measures"
-    stat ||--o{ player_daily_stat : "measures"
-    server ||--o{ player_daily_stat : "measures"
-    player_daily_stat }o--o{ player_weekly_stat : "syncs to"
-    player_daily_stat }o--o{ player_monthly_stat : "syncs to"
-    player_daily_stat }o--o{ player_alltime_stat : "syncs to"
+    stat_player ||--o{ stat_player_daily : "measures"
+    stat ||--o{ stat_player_daily : "measures"
+    stat_server ||--o{ stat_player_daily : "measures"
+    stat_player_daily }o--o{ stat_player_weekly : "syncs to"
+    stat_player_daily }o--o{ stat_player_monthly : "syncs to"
+    stat_player_daily }o--o{ stat_player_alltime : "syncs to"
 ```
