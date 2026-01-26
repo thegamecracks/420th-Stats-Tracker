@@ -27,5 +27,5 @@ createHashMapFromArray [
     ["kills_tanks", createHashMap],
     ["playtime",    createHashMap],
     ["revives",     createHashMap], // fdelta_stats_revived_by
-    ["transports",  createHashMap]  // TODO
+    ["transports",  createHashMap]
 ]

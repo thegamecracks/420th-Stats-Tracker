@@ -32,6 +32,7 @@ class CfgFunctions {
             class statsReset {};
             class statsRevivesLoop {};
             class statsTemplate {};
+            class statsTransportsLoop {};
         };
     };
 };
