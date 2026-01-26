@@ -47,7 +47,7 @@ hemtt build
 - [X] Stored procedure should insert or update daily statistics based on CURRENT_DATE
 - [X] Same stored procedure should insert or update `'score'` daily statistic
 - [X] Triggers should synchronize daily statistics with weekly, monthly, and all-time statistics
-- [X] Daily statistics should be pruned once every month
+- [X] Daily, weekly, and monthly statistics should be pruned once every month
 - [X] Deletion of daily, weekly, or monthly statistics must NOT affect all-time statistics
 
 ## Entity-Relationship Diagram
