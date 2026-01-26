@@ -22,5 +22,5 @@ if (!isServer) exitWith {};
 if (isRemoteExecuted) exitWith {};
 
 private _old = localNamespace getVariable "fdelta_stats_current";
-fdelta_stats_current = call fdelta_stats_fnc_statsTemplate;
+localNamespace setVariable ["fdelta_stats_current", call fdelta_stats_fnc_statsTemplate];
 if (!isNil "_old") then {_old} else {call fdelta_stats_fnc_statsTemplate}

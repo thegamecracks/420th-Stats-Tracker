@@ -21,4 +21,4 @@ Author:
 if (!isServer) exitWith {};
 if (isRemoteExecuted) exitWith {};
 if (localNamespace isNil "fdelta_stats_current") then {call fdelta_stats_fnc_statsReset};
-fdelta_stats_current
+localNamespace getVariable "fdelta_stats_current"
