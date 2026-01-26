@@ -19,6 +19,7 @@ class CfgFunctions {
             class dbInit { postInit = 1; };
             class dbQuery {};
             class dbStrip {};
+            class dbSyncLoop {};
         };
         class Stats {
             class statsCurrent {};

@@ -62,3 +62,4 @@ if ("extDB3" callExtension "9:LOCK_STATUS" isEqualTo "[1]") then {
 };
 
 localNamespace setVariable ["fdelta_stats_db_ready", _databaseReady];
+0 spawn fdelta_stats_fnc_dbSyncLoop;
