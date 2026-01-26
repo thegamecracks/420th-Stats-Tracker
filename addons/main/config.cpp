@@ -12,3 +12,14 @@ class CfgPatches {
         units[] = {};
     };
 };
+
+class CfgFunctions {
+    class fdelta_stats {
+        class Database {
+            class dbInit { postInit = 1; };
+        };
+        class Stats {
+            class statsInit { postInit = 1; };
+        };
+    };
+};
