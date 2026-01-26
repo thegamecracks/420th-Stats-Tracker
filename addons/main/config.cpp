@@ -17,6 +17,8 @@ class CfgFunctions {
     class fdelta_stats {
         class Database {
             class dbInit { postInit = 1; };
+            class dbQuery {};
+            class dbStrip {};
         };
         class Stats {
             class statsCurrent {};
