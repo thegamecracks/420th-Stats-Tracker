@@ -28,8 +28,7 @@ while {true} do {
                 private _amount = _y;
 
                 private _unit = _uid call BIS_fnc_getUnitByUID;
-                private _name = name _unit;
-                if (_name isEqualTo "") then {continue}; // unit not found
+                private _name = name _unit; // may be "", converted to null
 
                 private _args = [_uid, _name, _statID, _serverID, _amount];
                 ["addPlayerStat", _args, false] call fdelta_stats_fnc_dbQuery;
