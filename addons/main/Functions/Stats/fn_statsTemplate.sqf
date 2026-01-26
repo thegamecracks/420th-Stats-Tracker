@@ -19,7 +19,7 @@ Author:
 */
 createHashMapFromArray [
     ["deaths",      createHashMap],
-    ["incaps",      createHashMap], // TODO
+    ["incaps",      createHashMap],
     ["kills",       createHashMap],
     ["kills_air",   createHashMap],
     ["kills_cars",  createHashMap],

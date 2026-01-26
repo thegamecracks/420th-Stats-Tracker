@@ -40,6 +40,7 @@ fdelta_stats_ehID_entityKilled = addMissionEventHandler ["EntityKilled", {
     };
 }];
 
+0 spawn fdelta_stats_fnc_statsIncapsLoop;
 0 spawn fdelta_stats_fnc_statsPlaytimeLoop;
 0 spawn fdelta_stats_fnc_statsRevivesLoop;
 
