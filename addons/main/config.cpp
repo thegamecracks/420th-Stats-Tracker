@@ -19,6 +19,7 @@ class CfgFunctions {
             class dbInit { postInit = 1; };
         };
         class Stats {
+            class statsIncrement {};
             class statsInit { postInit = 1; };
         };
     };
