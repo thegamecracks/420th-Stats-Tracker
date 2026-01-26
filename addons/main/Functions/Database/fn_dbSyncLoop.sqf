@@ -46,5 +46,7 @@ while {true} do {
         ];
 	};
 
-    diag_log text format ["%1: %2 stat(s) submitted", _fnc_scriptName, _statCount];
+    if (_statCount > 0) then {
+        diag_log text format ["%1: %2 stat(s) submitted", _fnc_scriptName, _statCount];
+    };
 };
