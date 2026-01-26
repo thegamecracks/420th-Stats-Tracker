@@ -1,6 +1,6 @@
 # Stats Tracker
 
-A server-side mod for tracking player statistics. Integrated with [extDB3].
+A server-side Arma 3 mod for tracking player statistics. Integrated with [extDB3].
 
 [extDB3]: https://github.com/SteezCram/extDB3
 
