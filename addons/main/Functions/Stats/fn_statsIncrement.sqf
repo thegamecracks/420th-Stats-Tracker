@@ -38,6 +38,6 @@ if (isNil "_stats") exitWith {diag_log text format [
     str _name
 ]};
 
-private _value = _stats getOrDefault [_uid, 0] + _amount;
+private _value = (_stats getOrDefault [_uid, 0]) + _amount;
 _stats set [_uid, _value];
 _value
