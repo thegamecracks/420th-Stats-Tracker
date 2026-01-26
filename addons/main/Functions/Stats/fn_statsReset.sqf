@@ -19,6 +19,7 @@ Author:
 
 */
 if (!isServer) exitWith {};
+if (isRemoteExecuted) exitWith {};
 
 private _old = localNamespace getVariable "fdelta_stats_current";
 localNamespace setVariable ["fdelta_stats_current", call fdelta_stats_fnc_statsTemplate];
