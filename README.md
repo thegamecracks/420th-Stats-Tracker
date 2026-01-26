@@ -69,21 +69,21 @@ erDiagram
         string name
     }
     stat_player_daily {
-        date time
+        date created_at
         string steam_id
         string stat_id
         string server_id
         number amount
     }
     stat_player_weekly {
-        date time
+        date created_at
         string steam_id
         string stat_id
         string server_id
         number amount
     }
     stat_player_monthly {
-        date time
+        date created_at
         string steam_id
         string stat_id
         string server_id
