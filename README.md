@@ -36,6 +36,8 @@ hemtt build
 - [ ] Players should see themselves as unranked if no statistics are available
 - [ ] (Maybe?) Players should be able to opt-out of leaderboards
 - [ ] (Maybe?) Players should be able to opt-out of stats tracking
+- [ ] Administrators should be able to create new statistics
+- [ ] Administrators should be able to create new servers
 
 ## Design
 
