@@ -19,6 +19,7 @@ localNamespace setVariable ["fdelta_stats_current_kills_cars",     createHashMap
 localNamespace setVariable ["fdelta_stats_current_kills_ships",    createHashMap];
 localNamespace setVariable ["fdelta_stats_current_kills_tanks",    createHashMap];
 localNamespace setVariable ["fdelta_stats_current_playtime",       createHashMap]; // TODO
+localNamespace setVariable ["fdelta_stats_current_revives",        createHashMap]; // TODO
 localNamespace setVariable ["fdelta_stats_current_transports",     createHashMap]; // TODO
 
 fdelta_stats_ehID_entityKilled = addMissionEventHandler ["EntityKilled", {
