@@ -108,7 +108,7 @@ CREATE PROCEDURE add_stat_player_daily_score(
     p_amount BIGINT
 )
     MODIFIES SQL DATA
-    proc_label:BEGIN
+    BEGIN
         INSERT INTO stat_player_daily (created_at, steam_id, stat_id, server_id, amount)
             VALUES (CURRENT_DATE, p_steam_id, 'score', p_server_id, p_amount * stat_score_multiplier(p_stat_id))
             ON DUPLICATE KEY UPDATE
