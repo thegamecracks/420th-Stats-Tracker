@@ -8,6 +8,8 @@ To build the mod from source, install [HEMTT] and run the following command:
 hemtt build
 ```
 
+Since this is a server-side mod, it does not need to be signed.
+
 ## Users
 
 - Players (in-game participants)
