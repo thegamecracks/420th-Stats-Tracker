@@ -41,9 +41,10 @@ fdelta_stats_ehID_entityKilled = addMissionEventHandler ["EntityKilled", {
             case (_entity isKindOf "Tank"): {"kills_tanks"};
             default {""};
         };
-        if (_stat isNotEqualTo "") then {
-            [_stat, _instigator] call fdelta_stats_fnc_statsIncrement;
-        };
+        if (_stat isEqualTo "") exitWith {};
+        private _friendly = side group _entity isEqualTo side group _instigator;
+        private _amount = [1, -1] select _friendly;
+        [_stat, _instigator, _amount] call fdelta_stats_fnc_statsIncrement;
     };
 }];
 
