@@ -1,5 +1,9 @@
 # Stats Tracker
 
+A server-side mod for tracking player statistics. Integrated with [extDB3].
+
+[extDB3]: https://github.com/SteezCram/extDB3
+
 ## Installation
 
 To build the mod from source, install [HEMTT] and run the following command:
