@@ -146,6 +146,14 @@ CREATE TRIGGER tg_add_stat_player_monthly
         ON DUPLICATE KEY UPDATE
             amount = amount + NEW.amount - COALESCE(OLD.amount, 0);
 
+CREATE TRIGGER tg_add_stat_player_alltime
+    AFTER INSERT OR UPDATE ON stat_player_daily
+    FOR EACH ROW
+    INSERT INTO stat_player_alltime (steam_id, stat_id, server_id, amount)
+        VALUES (NEW.steam_id, NEW.stat_id, NEW.server_id, NEW.amount)
+        ON DUPLICATE KEY UPDATE
+            amount = amount + NEW.amount - COALESCE(OLD.amount, 0);
+
 -- https://mariadb.com/docs/server/server-usage/triggers-events/event-scheduler/events
 CREATE EVENT prune_stat_player_event
   ON SCHEDULE EVERY 1 MONTH
