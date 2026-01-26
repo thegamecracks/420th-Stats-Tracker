@@ -27,6 +27,7 @@ class CfgFunctions {
             class statsCurrent {};
             class statsIncrement {};
             class statsInit { postInit = 1; };
+            class statsPlaytimeLoop {};
             class statsReset {};
             class statsTemplate {};
         };
