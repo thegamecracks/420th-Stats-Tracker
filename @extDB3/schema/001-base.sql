@@ -38,8 +38,8 @@ CREATE TABLE stat_player_daily (
 
 -- Would prefer materialized view, but is not supported in MariaDB
 CREATE TABLE stat_player_weekly (
-    -- created_at TINYINT CHECK (created_at BETWEEN 0 AND 53), -- WEEK()
-    created_at DATE CHECK (DAYOFWEEK(created_at) = 1),
+    -- created_at DATE CHECK (DAYOFWEEK(created_at) = 1),
+    created_at INT DEFAULT YEARWEEK(CURRENT_DATE),
     steam_id VARCHAR(20) REFERENCES stat_player (steam_id),
     stat_id VARCHAR(32) REFERENCES stat (stat_id),
     server_id VARCHAR(32) REFERENCES stat_server (server_id),
@@ -49,8 +49,8 @@ CREATE TABLE stat_player_weekly (
 
 -- Would prefer materialized view, but is not supported in MariaDB
 CREATE TABLE stat_player_monthly (
-    -- created_at TINYINT CHECK (created_at BETWEEN 1 AND 12), -- MONTH()
-    created_at DATE CHECK (DAY(created_at) = 1),
+    -- created_at DATE CHECK (DAY(created_at) = 1),
+    created_at INT DEFAULT EXTRACT(YEAR_MONTH FROM CURRENT_DATE),
     steam_id VARCHAR(20) REFERENCES stat_player (steam_id),
     stat_id VARCHAR(32) REFERENCES stat (stat_id),
     server_id VARCHAR(32) REFERENCES stat_server (server_id),
@@ -95,8 +95,8 @@ CREATE PROCEDURE prune_stat_player()
     MODIFIES SQL DATA
     BEGIN
         DELETE FROM stat_player_daily WHERE created_at < DATE_SUB(NOW(), INTERVAL 2 MONTH);
-        DELETE FROM stat_player_weekly WHERE created_at < DATE_SUB(NOW(), INTERVAL 2 MONTH);
-        DELETE FROM stat_player_monthly WHERE created_at < DATE_SUB(NOW(), INTERVAL 2 MONTH);
+        DELETE FROM stat_player_weekly WHERE created_at < YEARWEEK(DATE_SUB(NOW(), INTERVAL 2 MONTH));
+        DELETE FROM stat_player_monthly WHERE created_at < EXTRACT(YEAR_MONTH FROM DATE_SUB(NOW(), INTERVAL 2 MONTH));
     END;
 //
 
@@ -146,8 +146,7 @@ CREATE TRIGGER tg_add_stat_player_weekly
     AFTER INSERT OR UPDATE ON stat_player_daily
     FOR EACH ROW
     INSERT INTO stat_player_weekly (created_at, steam_id, stat_id, server_id, amount)
-        -- FIXME: convert NEW.created_at to last week as DATE
-        VALUES (NEW.created_at, NEW.steam_id, NEW.stat_id, NEW.server_id, NEW.amount)
+        VALUES (YEARWEEK(NEW.created_at), NEW.steam_id, NEW.stat_id, NEW.server_id, NEW.amount)
         ON DUPLICATE KEY UPDATE
             amount = amount + NEW.amount - COALESCE(OLD.amount, 0);
 
@@ -155,8 +154,7 @@ CREATE TRIGGER tg_add_stat_player_monthly
     AFTER INSERT OR UPDATE ON stat_player_daily
     FOR EACH ROW
     INSERT INTO stat_player_monthly (created_at, steam_id, stat_id, server_id, amount)
-        -- FIXME: convert NEW.created_at to last month as DATE
-        VALUES (NEW.created_at, NEW.steam_id, NEW.stat_id, NEW.server_id, NEW.amount)
+        VALUES (EXTRACT(YEAR_MONTH FROM NEW.created_at), NEW.steam_id, NEW.stat_id, NEW.server_id, NEW.amount)
         ON DUPLICATE KEY UPDATE
             amount = amount + NEW.amount - COALESCE(OLD.amount, 0);
 
