@@ -16,14 +16,14 @@ hemtt build
 
 ## Functional Requirements
 
-- [ ] System should be able to track an arbitrary number of numerical player statistics
-  - [ ] Infantry kills, ground kills, ship kills, tank kills, aircraft kills
-  - [ ] Playtime (hours)
-  - [ ] Player deaths and incapacitations
-  - [ ] Players transported
-  - [ ] Players revived
-  - [ ] Score (meta, totality of other stats)
-- [ ] Player statistics should be tracked in near real-time (e.g. every five minutes)
+- [X] System should be able to track an arbitrary number of numerical player statistics
+  - [X] Infantry kills, ground kills, ship kills, tank kills, aircraft kills
+  - [X] Playtime (minutes)
+  - [X] Player deaths and incapacitations
+  - [X] Players transported
+  - [X] Players revived
+  - [X] Score (meta, totality of other stats)
+- [X] Player statistics should be tracked in near real-time (e.g. every five minutes)
 - [ ] Viewers should be able to see the top players for each statistic in near real-time
       (e.g. updated on page refresh)
 - [ ] Viewers should be able to see leaderboards on different time intervals
@@ -42,16 +42,13 @@ hemtt build
 
 ## Design
 
-- [ ] Statistics should be synced to a database at least every five minutes
-- [ ] Server should call stored procedure N x M times to submit each player's stats
-- [ ] Stored procedure should insert or update daily statistics based on CURRENT_DATE
-- [ ] On insert or update to daily statistics, a trigger should insert or update the
-      `'score'` daily statistic based on the stat's `score_multiplier` column,
-      not including updates to the score stat itself (to prevent recursion)
-- [ ] Weekly and monthly statistics should be materialized views of daily statistics
-- [ ] Triggers should synchronize daily statistics with all-time statistics (insert/update only)
-- [ ] Daily statistics should be pruned once every month
-- [ ] Deletion of daily statistics must NOT affect all-time statistics
+- [X] Statistics should be synced to a database at least every five minutes
+- [X] Server should call stored procedure N x M times to submit each player's stats
+- [X] Stored procedure should insert or update daily statistics based on CURRENT_DATE
+- [X] Same stored procedure should insert or update `'score'` daily statistic
+- [X] Triggers should synchronize daily statistics with weekly, monthly, and all-time statistics
+- [X] Daily statistics should be pruned once every month
+- [X] Deletion of daily, weekly, or monthly statistics must NOT affect all-time statistics
 
 ## Entity-Relationship Diagram
 
