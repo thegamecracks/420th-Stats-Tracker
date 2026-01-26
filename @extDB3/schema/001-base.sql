@@ -87,6 +87,7 @@ CREATE PROCEDURE add_player_stat(
             VALUES (CURRENT_DATE, p_steam_id, p_stat_id, p_server_id, p_amount)
             ON DUPLICATE KEY UPDATE
                 amount = amount + p_amount;
+        CALL add_stat_player_daily_score(CURRENT_DATE, p_steam_id, p_stat_id, p_server_id, p_amount);
     END;
 //
 
@@ -108,11 +109,6 @@ CREATE PROCEDURE add_stat_player_daily_score(
 )
     MODIFIES SQL DATA
     proc_label:BEGIN
-        -- Prevent infinite recursion
-        IF p_stat_id = 'score' THEN
-            LEAVE proc_label;
-        END IF;
-
         INSERT INTO stat_player_daily (created_at, steam_id, stat_id, server_id, amount)
             VALUES (CURRENT_DATE, p_steam_id, 'score', p_server_id, p_amount * stat_score_multiplier(p_stat_id))
             ON DUPLICATE KEY UPDATE
@@ -134,17 +130,17 @@ CREATE FUNCTION stat_score_multiplier(
 DELIMITER ;
 
 -- https://mariadb.com/docs/server/server-usage/triggers-events/triggers/trigger-overview
--- FIXME: SQL Error [1442] [HY000]: (conn=6) Can't update table 'stat_player_daily' in stored function/trigger because it is already used by statement which invoked this stored function/trigger
-CREATE TRIGGER tg_add_stat_player_daily_score
-    AFTER INSERT OR UPDATE ON stat_player_daily
-    FOR EACH ROW
-    CALL add_stat_player_daily_score(
-        NEW.created_at,
-        NEW.steam_id,
-        NEW.stat_id,
-        NEW.server_id,
-        NEW.amount - COALESCE(OLD.amount, 0)
-    );
+-- -- FIXME: SQL Error [1442] [HY000]: (conn=6) Can't update table 'stat_player_daily' in stored function/trigger because it is already used by statement which invoked this stored function/trigger
+-- CREATE TRIGGER tg_add_stat_player_daily_score
+--     AFTER INSERT OR UPDATE ON stat_player_daily
+--     FOR EACH ROW
+--     CALL add_stat_player_daily_score(
+--         NEW.created_at,
+--         NEW.steam_id,
+--         NEW.stat_id,
+--         NEW.server_id,
+--         NEW.amount - COALESCE(OLD.amount, 0)
+--     );
 
 CREATE TRIGGER tg_add_stat_player_weekly
     AFTER INSERT OR UPDATE ON stat_player_daily
