@@ -10,6 +10,8 @@ hemtt build
 
 Since this is a server-side mod, it does not need to be signed.
 
+[HEMTT]: https://github.com/brettmayson/HEMTT
+
 ## Users
 
 - Players (in-game participants)
