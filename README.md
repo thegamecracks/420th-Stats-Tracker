@@ -38,7 +38,7 @@ hemtt build
 - [ ] (Maybe?) Players should be able to opt-out of stats tracking
 - [ ] Administrators should be able to create new servers
 - [ ] Administrators should be able to reset statistics of specific players
-      (e.g. for leaderbaord exploiters)
+      (e.g. for leaderboard exploiters)
 
 ## Design
 
