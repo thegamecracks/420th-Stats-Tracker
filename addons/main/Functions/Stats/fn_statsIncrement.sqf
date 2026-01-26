@@ -31,8 +31,7 @@ if (_uid isEqualTo "") exitWith {diag_log text format [
     _player
 ]};
 
-private _var = format ["fdelta_stats_current_%1", _name];
-private _stats = localNamespace getVariable _var;
+private _stats = call fdelta_stats_fnc_statsCurrent get _name;
 if (isNil "_stats") exitWith {diag_log text format [
     "%1: invalid stat name %2",
     _fnc_scriptName,

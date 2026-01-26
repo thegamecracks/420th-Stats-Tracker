@@ -3,6 +3,7 @@ Function: fdelta_stats_fnc_statsInit
 
 Description:
     Initialize stats tracking on server and all (JIP) clients.
+    Function must be executed on server.
 
 Author:
     thegamecracks
@@ -11,16 +12,7 @@ Author:
 if (!isServer) exitWith {};
 if (isRemoteExecuted) exitWith {};
 
-localNamespace setVariable ["fdelta_stats_current_deaths",         createHashMap];
-localNamespace setVariable ["fdelta_stats_current_incaps",         createHashMap]; // TODO
-localNamespace setVariable ["fdelta_stats_current_kills",          createHashMap];
-localNamespace setVariable ["fdelta_stats_current_kills_air",      createHashMap];
-localNamespace setVariable ["fdelta_stats_current_kills_cars",     createHashMap];
-localNamespace setVariable ["fdelta_stats_current_kills_ships",    createHashMap];
-localNamespace setVariable ["fdelta_stats_current_kills_tanks",    createHashMap];
-localNamespace setVariable ["fdelta_stats_current_playtime",       createHashMap]; // TODO
-localNamespace setVariable ["fdelta_stats_current_revives",        createHashMap]; // TODO
-localNamespace setVariable ["fdelta_stats_current_transports",     createHashMap]; // TODO
+call fdelta_stats_fnc_statsReset;
 
 fdelta_stats_ehID_entityKilled = addMissionEventHandler ["EntityKilled", {
     params ["_entity", "_source", "_instigator"];
