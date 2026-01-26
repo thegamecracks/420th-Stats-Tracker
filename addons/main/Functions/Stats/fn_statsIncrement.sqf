@@ -22,6 +22,7 @@ Author:
 
 */
 if (!isServer) exitWith {};
+if (isRemoteExecuted) exitWith {};
 params ["_name", "_player", ["_amount", 1]];
 
 private _uid = getPlayerUID _player;
