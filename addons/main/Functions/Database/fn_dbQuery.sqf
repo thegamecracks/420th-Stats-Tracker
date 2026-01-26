@@ -32,7 +32,13 @@ params ["_function", ["_args", []], ["_wait", true]];
 private _debug = false; // TODO: turn into CBA setting or something
 
 private _mode = ["1", "2"] select _wait;
-private _query = [_function] + (_args apply {str _x call fdelta_stats_fnc_dbStrip}) joinString ":";
+private _query =
+    [_function]
+    + (_args apply {
+        if (_x isEqualType "") then {_x} else {str _x}
+        call fdelta_stats_fnc_dbStrip
+    })
+    joinString ":";
 private _args = format ["%1:fdelta_stats:%2", _mode, _query];
 
 if (_debug) then {diag_log text format ["%1: Executing query %2", _fnc_scriptName, _query]};
