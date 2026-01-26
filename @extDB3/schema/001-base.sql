@@ -130,18 +130,6 @@ CREATE FUNCTION stat_score_multiplier(
 DELIMITER ;
 
 -- https://mariadb.com/docs/server/server-usage/triggers-events/triggers/trigger-overview
--- -- FIXME: SQL Error [1442] [HY000]: (conn=6) Can't update table 'stat_player_daily' in stored function/trigger because it is already used by statement which invoked this stored function/trigger
--- CREATE TRIGGER tg_add_stat_player_daily_score
---     AFTER INSERT OR UPDATE ON stat_player_daily
---     FOR EACH ROW
---     CALL add_stat_player_daily_score(
---         NEW.created_at,
---         NEW.steam_id,
---         NEW.stat_id,
---         NEW.server_id,
---         NEW.amount - COALESCE(OLD.amount, 0)
---     );
-
 CREATE TRIGGER tg_add_stat_player_weekly
     AFTER INSERT OR UPDATE ON stat_player_daily
     FOR EACH ROW
