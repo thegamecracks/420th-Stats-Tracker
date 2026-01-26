@@ -29,7 +29,7 @@ hemtt build
 - [ ] Viewers should be able to see leaderboards on different time intervals
       (1 day, 1 week, 1 month, all-time)
 - [ ] Viewers should be able to see server-specific leaderboards, plus global leaderboard
-  [ ] Players should be able to view their own ranks and statistics on each leaderboard
+- [ ] Players should be able to view their own ranks and statistics on each leaderboard
 - [ ] Players should be able to view neighbouring player ranks on each leaderboard
 - [ ] Players should not appear in leaderboards when no statistics are available
       (e.g. 1-day leaderboard where player X has not gained any stats)
