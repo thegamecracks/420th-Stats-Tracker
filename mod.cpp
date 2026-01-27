@@ -1,7 +1,7 @@
-name = "Stats Tracker";
+name = "420th Stats Tracker";
 author = "thegamecracks";
-tooltip = "Stats Tracker";
-tooltipOwned = "Stats Tracker";
+tooltip = "420th Stats Tracker";
+tooltipOwned = "420th Stats Tracker";
 actionName = "GitHub";
 action = "https://github.com/thegamecracks/420th-Stats-Tracker";
 overview = "";

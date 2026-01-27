@@ -1,6 +1,6 @@
 class CfgPatches {
     class fdelta_stats_main {
-        name = "Stats Tracker";
+        name = "420th Stats Tracker";
         author = "thegamecracks";
         url = "https://github.com/thegamecracks/420th-Stats-Tracker";
 
