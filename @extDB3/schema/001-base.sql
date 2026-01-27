@@ -11,10 +11,10 @@ CREATE TABLE stat (
 INSERT INTO stat VALUES ('deaths',      -1);
 INSERT INTO stat VALUES ('incaps',      -1);
 INSERT INTO stat VALUES ('kills',        1);
-INSERT INTO stat VALUES ('kills_air',    1);
-INSERT INTO stat VALUES ('kills_cars',   1);
-INSERT INTO stat VALUES ('kills_ships',  1);
-INSERT INTO stat VALUES ('kills_tanks',  1);
+INSERT INTO stat VALUES ('kills_air',    5);
+INSERT INTO stat VALUES ('kills_cars',   2);
+INSERT INTO stat VALUES ('kills_ships',  3);
+INSERT INTO stat VALUES ('kills_tanks',  3);
 INSERT INTO stat VALUES ('playtime',     0);
 INSERT INTO stat VALUES ('revives',      1);
 INSERT INTO stat VALUES ('score',        0);
