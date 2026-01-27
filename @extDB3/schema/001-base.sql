@@ -16,9 +16,9 @@ INSERT INTO stat VALUES ('kills_cars',   2);
 INSERT INTO stat VALUES ('kills_ships',  3);
 INSERT INTO stat VALUES ('kills_tanks',  3);
 INSERT INTO stat VALUES ('playtime',     0);
-INSERT INTO stat VALUES ('revives',      1);
+INSERT INTO stat VALUES ('revives',      2);
 INSERT INTO stat VALUES ('score',        0);
-INSERT INTO stat VALUES ('transports',   1);
+INSERT INTO stat VALUES ('transports',   2);
 
 CREATE TABLE stat_server (
     server_id VARCHAR(32) PRIMARY KEY,
