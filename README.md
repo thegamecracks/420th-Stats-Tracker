@@ -33,7 +33,7 @@ Since this is a server-side mod, it does not need to be signed.
   - [X] Score (meta, totality of other stats)
 - [X] Player statistics should be tracked in near real-time (e.g. every five minutes)
 - [ ] Viewers should be able to see the top players for each statistic in near real-time
-      (e.g. updated on page refresh)
+      (e.g. fetched on request and cached for five minutes)
 - [ ] Viewers should be able to see leaderboards on different time intervals
       (1 day, 1 week, 1 month, all-time)
 - [ ] Viewers should be able to see server-specific leaderboards, plus global leaderboard
