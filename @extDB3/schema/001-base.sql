@@ -40,7 +40,7 @@ CREATE TABLE stat_player_daily (
     PRIMARY KEY (created_at, steam_id, stat_id, server_id)
 );
 
--- Would prefer materialized view, but is not supported in MariaDB
+-- Would prefer materialized view here, but MaridDB does not support it
 CREATE TABLE stat_player_weekly (
     -- created_at DATE CHECK (DAYOFWEEK(created_at) = 1),
     created_at INT DEFAULT YEARWEEK(CURRENT_DATE),
@@ -51,7 +51,7 @@ CREATE TABLE stat_player_weekly (
     PRIMARY KEY (created_at, steam_id, stat_id, server_id)
 );
 
--- Would prefer materialized view, but is not supported in MariaDB
+-- Would prefer materialized view here, but MaridDB does not support it
 CREATE TABLE stat_player_monthly (
     -- created_at DATE CHECK (DAY(created_at) = 1),
     created_at INT DEFAULT EXTRACT(YEAR_MONTH FROM CURRENT_DATE),
