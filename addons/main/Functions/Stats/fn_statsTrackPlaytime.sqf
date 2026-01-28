@@ -1,5 +1,5 @@
 /*
-Function: fdelta_stats_fnc_statsPlaytimeLoop
+Function: fdelta_stats_fnc_statsTrackPlaytime
 
 Description:
     Continuously increment playtime statistics in minutes.

@@ -1,5 +1,5 @@
 /*
-Function: fdelta_stats_fnc_statsRevivesLoop
+Function: fdelta_stats_fnc_statsTrackRevives
 
 Description:
     Continuously increment revive statistics.

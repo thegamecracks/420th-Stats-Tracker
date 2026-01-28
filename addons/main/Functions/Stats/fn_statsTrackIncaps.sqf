@@ -1,5 +1,5 @@
 /*
-Function: fdelta_stats_fnc_statsIncapsLoop
+Function: fdelta_stats_fnc_statsTrackIncaps
 
 Description:
     Continuously increment incapacitation statistics.

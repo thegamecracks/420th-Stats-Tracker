@@ -25,14 +25,14 @@ class CfgFunctions {
         class Stats {
             file = "z\fdelta_stats\addons\main\Functions\Stats";
             class statsCurrent {};
-            class statsIncapsLoop {};
             class statsIncrement {};
             class statsInit { postInit = 1; };
-            class statsPlaytimeLoop {};
             class statsReset {};
-            class statsRevivesLoop {};
             class statsTemplate {};
-            class statsTransportsLoop {};
+            class statsTrackIncaps {};
+            class statsTrackPlaytime {};
+            class statsTrackRevives {};
+            class statsTrackTransports {};
         };
     };
 };
