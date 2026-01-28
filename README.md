@@ -51,7 +51,8 @@ Since this is a server-side mod, it does not need to be signed.
 ## Mod Design
 
 - [X] Statistics should be synced to a database at least every five minutes
-- [X] Game server should call stored procedure N x M times to submit each player's stats
+- [X] Game server should call stored procedure up to N x M times to submit
+      each player's changes in stats
 
 ## Database Design
 
