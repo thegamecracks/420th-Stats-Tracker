@@ -31,6 +31,7 @@ Since this is a server-side mod, it does not need to be signed.
   - [X] Players transported
   - [X] Players revived
   - [X] Score (meta, totality of other stats)
+- [X] Player statistics should be tracked per-server
 - [X] Player statistics should be tracked in near real-time (e.g. every five minutes)
 - [ ] Viewers should be able to see the top players for each statistic in near real-time
       (e.g. fetched on request and cached for five minutes)
