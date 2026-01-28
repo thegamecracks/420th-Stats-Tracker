@@ -1,6 +1,10 @@
 CREATE TABLE stat_player (
     steam_id VARCHAR(20) PRIMARY KEY,
     name VARCHAR(255) NOT NULL
+    -- NOTE: If used across multiple games, a player's name can change erratically.
+    --       Even on Arma 3, players can change names quickly by switching
+    --       between in-game profiles.
+    --       Perhaps names should be keyed by server ID or some game ID?
 );
 
 CREATE TABLE stat (
