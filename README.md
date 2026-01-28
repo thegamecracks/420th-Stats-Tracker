@@ -48,17 +48,20 @@ Since this is a server-side mod, it does not need to be signed.
 - [ ] Administrators should be able to reset statistics of specific players
       (e.g. for leaderboard exploiters)
 
-## Design
+## Mod Design
 
 - [X] Statistics should be synced to a database at least every five minutes
-- [X] Server should call stored procedure N x M times to submit each player's stats
+- [X] Game server should call stored procedure N x M times to submit each player's stats
+
+## Database Design
+
 - [X] Stored procedure should insert or update daily statistics based on CURRENT_DATE
 - [X] Same stored procedure should insert or update `'score'` daily statistic
 - [X] Triggers should synchronize daily statistics with weekly, monthly, and all-time statistics
 - [X] Daily, weekly, and monthly statistics should be pruned once every month
 - [X] Deletion of daily, weekly, or monthly statistics must NOT affect all-time statistics
 
-## Entity-Relationship Diagram
+### Entity-Relationship Diagram
 
 ```mermaid
 erDiagram
