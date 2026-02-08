@@ -32,7 +32,8 @@ class CfgFunctions {
             class statsTrackIncaps {};
             class statsTrackPlaytime {};
             class statsTrackRevives {};
-            class statsTrackTransports {};
+            class statsTrackTransportsOnGetInMan {};
+            class statsTrackTransportsOnGetOutMan {};
         };
     };
 };

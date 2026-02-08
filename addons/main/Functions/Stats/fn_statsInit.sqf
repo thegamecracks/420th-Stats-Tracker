@@ -40,9 +40,14 @@ fdelta_stats_ehID_entityKilled = addMissionEventHandler ["EntityKilled", {
     };
 }];
 
+fdelta_stats_ehID_onUserSelectedPlayer = addMissionEventHandler ["OnUserSelectedPlayer", {
+    params ["", "_unit"];
+    _unit addEventHandler ["GetInMan", {call fdelta_stats_fnc_statsTrackTransportsOnGetInMan}];
+    _unit addEventHandler ["GetOutMan", {call fdelta_stats_fnc_statsTrackTransportsOnGetOutMan}];
+}];
+
 0 spawn fdelta_stats_fnc_statsTrackIncaps;
 0 spawn fdelta_stats_fnc_statsTrackPlaytime;
 0 spawn fdelta_stats_fnc_statsTrackRevives;
-0 spawn fdelta_stats_fnc_statsTrackTransports;
 
 diag_log text format ["%1: initialized stats tracking event handlers", _fnc_scriptName];
