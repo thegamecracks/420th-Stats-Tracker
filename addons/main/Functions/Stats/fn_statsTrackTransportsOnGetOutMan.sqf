@@ -26,6 +26,14 @@ _unit getVariable "fdelta_stats_transport" params ["_startPos"];
 _unit setVariable ["fdelta_stats_transport", nil];
 if (isNil "_startPos") exitWith {};
 
+// FIXME: A player could drive themselves, switch seats, and let someone else
+//        take the driver seat before exiting which would count as their stat.
+//
+//        Preferably the start position would reset any time the driver/pilot
+//        changes, but there's no easy event handler for this.
+//
+//        ControlsShifted (mission event handler) is close, but has
+//        unreliable execution with global arguments.
 private _driver = currentPilot _vehicle;
 if (!isPlayer _driver) exitWith {};
 if (_unit isEqualTo _driver) exitWith {};
