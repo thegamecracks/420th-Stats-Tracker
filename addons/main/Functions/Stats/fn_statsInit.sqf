@@ -14,7 +14,7 @@ if (isRemoteExecuted) exitWith {};
 
 call fdelta_stats_fnc_statsReset;
 
-fdelta_stats_ehID_entityKilled = addMissionEventHandler ["EntityKilled", {
+fdelta_stats_ehID_EntityKilled = addMissionEventHandler ["EntityKilled", {
     params ["_entity", "_source", "_instigator"];
 
     if (isNull _source) exitWith {};
@@ -40,7 +40,7 @@ fdelta_stats_ehID_entityKilled = addMissionEventHandler ["EntityKilled", {
     };
 }];
 
-fdelta_stats_ehID_onUserSelectedPlayer = addMissionEventHandler ["OnUserSelectedPlayer", {
+fdelta_stats_ehID_OnUserSelectedPlayer = addMissionEventHandler ["OnUserSelectedPlayer", {
     params ["", "_unit"];
     _unit addEventHandler ["GetInMan", {call fdelta_stats_fnc_statsTrackTransportsOnGetInMan}];
     _unit addEventHandler ["GetOutMan", {call fdelta_stats_fnc_statsTrackTransportsOnGetOutMan}];
