@@ -19,6 +19,8 @@ fdelta_stats_ehID_EntityKilled = addMissionEventHandler ["EntityKilled", {
 
     if (isNull _source) exitWith {};
     if (_entity isEqualTo _source) exitWith {}; // Likely force respawned
+    if (isNull _instigator) then {_instigator = UAVControl vehicle _source # 0};
+    if (isNull _instigator) then {_instigator = _source};
 
     if (isPlayer _entity) then {
         ["deaths", _entity] call fdelta_stats_fnc_statsIncrement;
