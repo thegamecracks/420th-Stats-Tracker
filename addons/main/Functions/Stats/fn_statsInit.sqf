@@ -36,7 +36,7 @@ fdelta_stats_ehID_EntityKilled = addMissionEventHandler ["EntityKilled", {
             default {""};
         };
         if (_stat isEqualTo "") exitWith {};
-        private _friendly = side group _entity isEqualTo side group _instigator;
+        private _friendly = [side group _instigator, side group _entity] call BIS_fnc_sideIsFriendly;
         private _amount = [1, -1] select _friendly;
         [_stat, _instigator, _amount] call fdelta_stats_fnc_statsIncrement;
     };
