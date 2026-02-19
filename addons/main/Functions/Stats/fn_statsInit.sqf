@@ -14,7 +14,6 @@ if (isRemoteExecuted) exitWith {};
 
 call fdelta_stats_fnc_statsReset;
 
-localNamespace setVariable ["fdelta_stats_kill_type_cache", createHashMap];
 fdelta_stats_ehID_EntityKilled = addMissionEventHandler ["EntityKilled", {
     params ["_entity", "_source", "_instigator"];
 
@@ -28,18 +27,7 @@ fdelta_stats_ehID_EntityKilled = addMissionEventHandler ["EntityKilled", {
     };
 
     if (isPlayer _instigator) then {
-        private _cache = localNamespace getVariable ["fdelta_stats_kill_type_cache", createHashMap];
-        private _stat = _cache getOrDefaultCall [typeOf _entity, {
-            private _config = configOf _entity;
-            private _simulation = toLowerANSI getText (_config >> "simulation");
-            switch (true) do {
-                case (_simulation in ["soldier"]): {"kills"};
-                case (_simulation in ["airplanex", "helicopterrtd"]): {"kills_air"};
-                case (_simulation in ["car", "carx", "motorcycle"]): {"kills_cars"};
-                case (_simulation in ["shipx", "submarinex"]): {"kills_ships"};
-                case (_simulation in ["tankx"]): {"kills_tanks"};
-                default {""};
-            }}, true];
+        private _stat = _entity call fdelta_stats_fnc_statsKillType;
         if (_stat isEqualTo "") exitWith {};
         private _friendly = [side group _instigator, side group _entity] call BIS_fnc_sideIsFriendly;
         private _amount = [1, -1] select _friendly;
