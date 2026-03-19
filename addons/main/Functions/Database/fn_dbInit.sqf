@@ -53,11 +53,22 @@ if ("extDB3" callExtension "9:LOCK_STATUS" isEqualTo "[1]") then {
         _fnc_scriptName,
         "extDB3" callExtension "9:OUTPUTSIZE"
     ];
-    diag_log text format [
-        "%1: extDB3 LOCK: %2",
-        _fnc_scriptName,
-        "extDB3" callExtension "9:LOCK"
-    ];
+
+    0 spawn {
+        // For compatibility with other missions, lock after a delay
+        scriptName "fdelta_stats_fnc_dbInit_lock";
+        sleep 60;
+        if (!isNil "fdelta_stats_fnc_dbInit_lock_skip") exitWith {diag_log text format [
+            "%1: locking skipped, variable fdelta_stats_fnc_dbInit_lock_skip was set",
+            _fnc_scriptName
+        ]};
+        diag_log text format [
+            "%1: extDB3 LOCK: %2",
+            _fnc_scriptName,
+            "extDB3" callExtension "9:LOCK"
+        ];
+    };
+
     _databaseReady = true;
 };
 
