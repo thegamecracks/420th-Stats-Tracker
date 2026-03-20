@@ -61,6 +61,13 @@ if ("extDB3" callExtension "9:LOCK_STATUS" isEqualTo "[1]") then {
         private _skipVar = "fdelta_stats_fnc_dbInit_lock_skip";
         scriptName _fnc_scriptName;
 
+        diag_log text format [
+            "%1: locking extDB3 in %2 seconds, set variable %3 to skip this",
+            _fnc_scriptName,
+            _delay,
+            _skipVar
+        ];
+
         sleep _delay;
 
         if (!isNil _skipVar) exitWith {diag_log text format [
