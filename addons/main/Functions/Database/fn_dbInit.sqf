@@ -56,12 +56,19 @@ if ("extDB3" callExtension "9:LOCK_STATUS" isEqualTo "[1]") then {
 
     0 spawn {
         // For compatibility with other missions, lock after a delay
-        scriptName "fdelta_stats_fnc_dbInit_lock";
-        sleep 60;
-        if (!isNil "fdelta_stats_fnc_dbInit_lock_skip") exitWith {diag_log text format [
-            "%1: locking skipped, variable fdelta_stats_fnc_dbInit_lock_skip was set",
-            _fnc_scriptName
+        private _fnc_scriptName = "fdelta_stats_fnc_dbInit_lock";
+        private _delay = 60;
+        private _skipVar = "fdelta_stats_fnc_dbInit_lock_skip";
+        scriptName _fnc_scriptName;
+
+        sleep _delay;
+
+        if (!isNil _skipVar) exitWith {diag_log text format [
+            "%1: locking skipped, variable %2 was set",
+            _fnc_scriptName,
+            _skipVar
         ]};
+
         diag_log text format [
             "%1: extDB3 LOCK: %2",
             _fnc_scriptName,
