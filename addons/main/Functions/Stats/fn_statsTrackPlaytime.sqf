@@ -14,5 +14,7 @@ if (isRemoteExecuted) exitWith {};
 
 while {true} do {
     sleep 60;
-    {["playtime", _x] call fdelta_stats_fnc_statsIncrement} forEach allPlayers;
+    {
+        ["playtime", _x] call fdelta_stats_fnc_statsIncrement;
+    } forEach (allPlayers - entities "HeadlessClient_F");
 };
