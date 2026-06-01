@@ -6,6 +6,7 @@ class CfgPatches {
 
         requiredVersion = 2.20;
         requiredAddons[] = {
+            "extDB3",
         };
         skipWhenMissingDependencies = 0;
 

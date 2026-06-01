@@ -11,6 +11,7 @@ Author:
 if (!isServer) exitWith {};
 if (isRemoteExecuted) exitWith {};
 
+// NOTE: we have a declared dependency on extDB3, so this version should be guaranteed
 private _version = "extDB3" callExtension "9:VERSION";
 if (_version isEqualTo "") exitWith {diag_log text format [
     "%1: extDB3 not available, database synchronization disabled",
