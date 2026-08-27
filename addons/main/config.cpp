@@ -17,14 +17,14 @@ class CfgPatches {
 class CfgFunctions {
     class fdelta_stats {
         class Database {
-            file = "z\fdelta_stats\addons\main\Functions\Database";
+            file = "\z\fdelta_stats\addons\main\Functions\Database";
             class dbInit { postInit = 1; };
             class dbQuery {};
             class dbStrip {};
             class dbSyncLoop {};
         };
         class Stats {
-            file = "z\fdelta_stats\addons\main\Functions\Stats";
+            file = "\z\fdelta_stats\addons\main\Functions\Stats";
             class statsCurrent {};
             class statsIncrement {};
             class statsInit { postInit = 1; };
